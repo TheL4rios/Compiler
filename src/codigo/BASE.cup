@@ -1,0 +1,33 @@
+package codigo;
+import java_cup.runtime.Symbol;
+
+parser code
+{:
+    private Symbol s;
+    
+    public void syntax_error(Symbol s){
+        this.s = s;
+    }
+
+    public Symbol getS(){
+        return this.s;
+    }
+    
+:};
+
+terminal cadena, palRes_user, expReg, palRes_lex, palRes_dec, palRes_ter, palRes_ig, palRes_sint, palRes_nter, palRes_inic, 
+         palRes_prod, palRes_semant, palRes_imp, tipoDato_ex, tipoDato_al, tipoDato_pr, tipoDato_cd, macro_ls, macro_c, 
+         sentCont_si, sentCont_sn, funcion_nc, funcion_tk, rango, opAsig_tepr, opAsig_cad, caracter, Terminal, produc, 
+         ident, numero, corchete_a, corchete_c, llave_a, llave_c, dos_puntos, punto_coma, opRel_may, opRel_men, opRel_ig, 
+         opRel_dif, sigExcl_a, sigExcl_c, opAsig, comi_sim, sigPeso, comi_dob, opArt_resta, opArt_suma, opArt_pot, opArt_mult, 
+         opLog_o, opLog_y, opAgr_a, opAgr_c, barra_inv, barra, coma, punto, SYMBOL
+;
+
+non terminal INICIO, PROGRAMA
+;
+
+start with INICIO
+;
+
+INICIO ::= PROGRAMA
+;

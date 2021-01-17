@@ -1,0 +1,39 @@
+ident{
+	num d = 2+((10-8)*9+6)/(5*(10-1));
+	servo s1 = SERVO_1;
+	servo s2 = SERVO_2;
+	servo s3 = SERVO_3;
+	grado g1 = 90°;
+	grado g2 = 0°;
+	grado g3 = 0°;
+	sprox spN = SPROX_NORTE;
+	sprox spS = SPROX_SUR;
+	sprox spE = SPROX_ESTE;
+	sprox spO = SPROX_OESTE;
+	bool cond = dist(spN, CENTIM) <= 15;
+}
+cuerpo{ 
+	reset(); -- devolver el brazo a posición original
+
+	-- agarrar objetos de una banda transportadora
+bucle (cond){
+		girar(90°, s1);
+		girar(0°, s2);
+		girar(90°, s3);
+		agarrar();
+		girar(90°, s2);
+		girar(0°, s3);
+		soltar();
+		reset(); 
+	}
+
+	-- adiós
+	ciclo(1, 10, 2){
+		girar(g1, s1);
+		girar(g2, s2);
+		girar(g3, s3);
+		agarrar();
+	}
+	reset(); -- devolver el brazo a posición original
+}
+
